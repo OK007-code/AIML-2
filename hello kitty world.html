@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>HELLOKITTY</title>
+    <style>
+        .root {
+            background-color: lch(72.21% 46.71 353.61);
+        }
+        *{box-sizing: border-box}; 
+            html,body {height: 100%}; 
+            body {
+                margin: 0;
+                padding: 30px;
+                background-color: #f261ff;
+                font-family: 'Press Start 2P', cursive;
+                text-align: center;
+            }
+        .screen {
+            width: 1200px;
+            max-width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: lab(75.94% 41.17 -5.16);
+            border: 5px solid hsl(337, 100%, 40%);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            align-content: center;
+        }
+        .title {
+            font-size: 50px;
+            color: hwb(337 0% 4%);
+            text-transform: uppercase;
+            font-family: 'Press Start 2P', monospace;
+            letter-spacing: 2px;
+            margin-top: 80px;
+            text-align: center;
+            line-break: auto;
+        }
+        .subtitle{
+      font-size:20px;
+      color:#c64f7a;
+      margin:6px 0 18px 0;
+      text-align: center;
+    }
+      .content{
+      line-height:1.55;
+      font-size:25px;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 20px;
+      margin-top:30px;
+      font-size:20px;
+      color:#fff;
+      background-color:hsl(337, 100%, 47%);
+      border:none;
+      border-radius:20px;
+      text-decoration:none;
+      cursor:pointer;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      align-content: center;
+      align-self: center;
+    }
+    .card{
+      background-color:#ffe6f2;
+      border:2px solid #ffb3d9;
+      border-radius:10px;
+      padding:15px;
+      margin-top:15px;
+      text-align:left;
+    }
+    .hearts{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .heart{
+      width:20px;height:20px;
+      background:#ff1a75;
+      clip-path: polygon(50% 0%, 75% 15%, 100% 15%, 100% 45%, 50% 100%, 0% 45%, 0% 15%, 25% 15%);
+      transform:scale(0.9);
+      box-shadow: 0 3px 0 rgba(0,0,0,0.05);
+    }
+    .kitty-wrap{
+      text-align:center;
+      margin-top:18px;
+      justify-content: center;
+      image-rendering: pixelated;
+      transform: translateZ(0);
+    }
+     @media (max-width:880px){
+      .screen{grid-template-columns: 1fr;}
+      .kitty-wrap{width:260px;height:260px}
+    }
+</style>
+</head>
+<body>
+    <div class="root">
+        <div class="screen">
+            <div class="title">HELLO KITTY WORLD🎀</div>
+            <div class="subtitle">WELCOME TO THE CUTEST PLACE ON EARTH!!</div>
+            <div class="content">
+                 <a class="btn" href="#" onclick="alert('Have fun in Hello Kitty World!')">Enter World</a>
+        <div class="hearts" aria-hidden="true">
+          <span class="heart"></span><span class="heart"></span><span class="heart"></span>
+          <span class="heart"></span><span class="heart"></span><span class="heart"></span>
+            <span class="heart"></span><span class="heart"></span><span class="heart"></span>
+        </div>
+      </div>
+    </div>
+
+    
+</body>
+</html>
