@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Kitty World</title>
+    <style>body {
+    background-color: #ffe6f2;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding-top: 60px;
+    position: relative;
+}
+
+.title {
+    font-size: 32px;
+    color: #ff4da6;
+    margin: 20px 0 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #ff80bf;
+    margin-bottom: 40px;
+}
+
+.kitty-icon {
+    width: 100px;
+    image-rendering: pixelated;
+}
+
+.enter-btn {
+    font-family: 'Press Start 2P';
+    background-color: #ffb3d9;
+    border: 3px solid #ff66b3;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.enter-btn:hover {
+    background-color: #ff99cc;
+    transform: scale(1.1);
+}
+
+/* Pixel Clouds */
+.cloud {
+    width: 60px;
+    position: absolute;
+    top: 10%;
+    image-rendering: pixelated;
+    opacity: 0.6;
+}
+
+.cloud1 { left: 5%; top: 10%; animation: float 6s infinite alternate ease-in-out; }
+.cloud2 { right: 5%; top: 60%; animation: float 7s infinite alternate ease-in-out; }
+.cloud3 { left: 35%; top: 35%; animation: float 5s infinite alternate ease-in-out; }
+
+@keyframes float {
+    from { transform: translateY(0px); }
+    to { transform: translateY(25px); }
+}
+
+/* Pixel Hearts */
+.hearts {
+    font-size: 22px;
+    margin-top: 40px;
+    color: #ff1a8c;
+}
+</style>
+
+    <!-- Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <img src="https://i.imgur.com/8bH4yL7.png" class="kitty-icon" alt="Hello Kitty">
+
+        <h1 class="title">Hello Kitty World ❤</h1>
+        <h2 class="subtitle">Welcome</h2>
+
+        <button class="enter-btn" onclick="alert('YAYYY!!')">Enter World</button>
+
+        <!-- Pixel Clouds -->
+        <img src="7e300a5e0dff6f5b9a9b24729cfb65cb.jpg"class="cloud cloud1">
+        <img src="7e300a5e0dff6f5b9a9b24729cfb65cb.jpg" class="cloud cloud2">
+        <img src="7e300a5e0dff6f5b9a9b24729cfb65cb.jpg" class="cloud cloud3">
+
+        <!-- Pixel Hearts -->
+        <div class="hearts">❤ ❤ ❤</div>
+
+    </div>
+</body>
+</html>
