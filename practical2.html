@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Navigation Menu</title>
+<style>
+    nav a {
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        background: lightblue;
+    }
+    .inline-text {
+        display: inline;
+        color: blue;
+        float:left;
+    }
+    .clear{
+        clear: both;
+    }
+    .inline-block a {
+        display: inline-block;
+        padding: 10px;
+        color: #333;
+        background: lightgreen;
+        margin: 5px;
+    }
+    .block a {
+        display: block;
+        padding: 10px;
+        color: #333;
+        background: green;
+        margin: 5px 0;
+    }
+</style>
+</head>
+<body>
+    <div class="inline-text">
+        Navigation practical:
+    </div>
+    
+    <div class="navigation-menu">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+       </nav>
+    </div>
+    <div class="inline-block">
+        
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        
+    </div>
+    <div class="block">
+        
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+     
+    <div class="clear">
+        this text should come after floating elements.
+    </div>
+</body>
+</html>

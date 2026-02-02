@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Night 🎂</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+<style>
+body{
+  margin:0; overflow:hidden;
+  background:radial-gradient(circle at bottom,#020024,#090979,#000);
+  color:white; font-family:sans-serif;
+}
+.scene{
+  position:absolute; bottom:0;
+  width:100%; height:45%;
+  background:#2b1b10;
+  border-top-left-radius:50%;
+  border-top-right-radius:50%;
+}
+.cake{
+  position:absolute;
+  left:50%; top:-110px;
+  transform:translateX(-50%);
+  width:200px; height:120px;
+  background:#ffb6c1;
+  border-radius:0 0 20px 20px;
+}
+.cake::before{
+  content:''; position:absolute;
+  top:-40px; width:100%; height:40px;
+  background:#ffc0cb;
+  border-radius:20px 20px 0 0;
+}
+.candle{
+  position:absolute; top:-70px; left:50%;
+  transform:translateX(-50%);
+  width:8px; height:35px; background:white;
+}
+.flame{
+  width:14px; height:14px;
+  background:orange; border-radius:50%;
+  position:absolute; top:-16px; left:50%;
+  transform:translateX(-50%);
+}
+.hidden{display:none}
+.hand{
+  position:absolute; bottom:20px;
+  left:50%; transform:translateX(-50%);
+  font-size:48px;
+}
+.wine{
+  position:absolute; right:20%; top:-90px;
+  font-size:40px;
+}
+video{display:none}
+</style>
+</head>
+
+<body>
+<video id="video"></video>
+
+<div class="scene">
+  <div class="cake" id="cake">
+    <div class="candle">
+      <div class="flame" id="flame"></div>
+    </div>
+  </div>
+  <div class="wine" id="wine">🍷</div>
+</div>
+
+<div class="hand" id="hand"></div>
+
+<script>
+const handEl=document.getElementById("hand");
+const flame=document.getElementById("flame");
+const wine=document.getElementById("wine");
+const cake=document.getElementById("cake");
+
+let candleBlown=false;
+let cakeCut=false;
+
+const hands=new Hands({
+  locateFile:file=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+});
+
+hands.setOptions({
+  maxNumHands:1,
+  minDetectionConfidence:0.7,
+  minTrackingConfidence:0.7
+});
+
+hands.onResults(results=>{
+  if(!results.multiHandLandmarks.length) return;
+
+  const lm=results.multiHandLandmarks[0];
+  const thumb=lm[4], index=lm[8], middle=lm[12];
+
+  const pinchDist=Math.hypot(
+    thumb.x-index.x,
+    thumb.y-index.y
+  );
+
+  const openPalm = middle.y < lm[9].y;
+  const fist = pinchDist < 0.03;
+
+  // Blow candle
+  if(openPalm && !candleBlown){
+    flame.classList.add("hidden");
+    candleBlown=true;
+  }
+
+  // Cut cake
+  if(pinchDist < 0.05 && !cakeCut){
+    cake.style.background="#ff9aa2";
+    cakeCut=true;
+  }
+
+  // Grab cake
+  if(fist && cakeCut){
+    handEl.innerText="🤍🍰";
+  }
+
+  // Drink wine
+  if(fist && openPalm){
+    handEl.innerText="🤍🍷";
+    wine.style.opacity=0.3;
+  }
+});
+
+const camera=new Camera(video,{
+  onFrame:async()=>{await hands.send({image:video})},
+  width:640,height:480
+});
+camera.start();
+</script>
+</body>
+</html>
